@@ -1,0 +1,2 @@
+# LDAP Scripts
+Here's a collection of `.bat` scripts that I have used in the past to create users within LDAP.  In each script, there should be some comments and remarks about how best to make the script work and what ticket was originally involved.
