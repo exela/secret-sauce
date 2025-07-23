@@ -1,0 +1,27 @@
+Account Code,Organization Id,Ticket Subject,Ticket Description,Language
+THESPACEPRO,360172583391,THESPACEPRO - DXP 7.1 End of Life,"Support Team,<br><br>
+We want to remind the customer about the upcoming DXP 7.1 End of Support on November 13, 2025. Please copy the following message and pass it to the customer.  Please also ping the customer a couple of times before closing the ticket.  That would be great!
+<br><BR>
+Regards,<br>
+Alex
+<br><BR>
+<hr>
+<br><BR>
+Dear Customer,<br><BR>
+
+We would like to remind subscribers using Liferay DXP 7.1 that Liferay DXP 7.1 will reach end of life on <b>November 13, 2025</b>.<br><BR>
+
+<b>Extended Premium Support (EPS)</b><br><BR>
+If you have an active EPS subscription, you will continue to receive extended premium support until your EPS subscription expires. Please note that EPS cannot be purchased or renewed after November 13, 2025.
+
+<b>Recommended Actions</b><br><BR>
+In order to continue receiving the same level of support subscribers must purchase extended premium support for Liferay DXP 7.1 or must upgrade to a version in Premium Support such as Liferay DXP 2025.Q1 LTS.<br><BR>
+- For information about the latest features and benefits of our current releases, please see <a href='https://www.liferay.com/web/guest/whats-new>What’s New with Liferay</a><br><BR>
+- For detailed instructions on upgrading your Liferay DXP instance, please refer to our <a href='https://learn.liferay.com/w/dxp/self-hosted-installation-and-upgrades/upgrading-liferay'>Upgrading Liferay</a> documentation.<br><BR>
+- Read Liferay’s <a href='https://www.liferay.com/liferay-service-life-policy'>service life policy</a> in order to understand how this change may affect you.<br><BR>
+- Please contact your Sales Contact  or Customer Experience Manager to discuss Extended Premium Support or upgrading to a supported version.<br><BR>
+<br><BR>
+
+<br>
+Best Regards,<br>
+The Liferay Team",English
