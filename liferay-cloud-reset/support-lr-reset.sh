@@ -154,14 +154,14 @@ main() {
         action_taken=true
     fi
 
-    # Report the final status.
+    # Report the final status and exit if an action was taken.
     if [ "$action_taken" = true ]; then
-        echo "🎉 All requested tasks are complete."
+        echo "🎉 All requested tasks are complete. Please set the DROP variable(s) to false before restarting."
+        exit 0
     else
-        echo "ℹ️ No action taken. No relevant environment variables were set."
+        echo "ℹ️ No action taken. No relevant environment variables were set. Proceeding with application startup."
     fi
 }
 
 # Execute the main function
 main "${@}"
-
