@@ -3,9 +3,10 @@ The following is a way that you can easily refresh your Liferay instance.  The s
 
 
 ## `LR_HARD_RESET` - Drops all data (Doclib, Indices, and Database)
-1. In your environment, add a new environment variable `LR_HARD_RESET` and set it to `true`
+1. In your Cloud Console environment, add a new environment variable `LR_HARD_RESET` and set it to `true`.
 
-2. Place the script, `support-lr-reset.sh`, within the `liferay/configs/common/scripts` folder:
+2. Place the script, `support-lr-reset.sh`, within the `liferay/configs/common/scripts` folder.
+**NOTE:** There is currently an issue where `common` does not deploy to ALL environments.  To workaround this, use a custom folder for your environment instead: `liferay/configs/achau/scripts`
 
 3. Run a `chmod +x support-lr-reset.sh` on the script to ensure it is executable!
 
@@ -13,8 +14,14 @@ The following is a way that you can easily refresh your Liferay instance.  The s
 
 5. Once everything has been reset.  Set the environment variable to `false`.  This should restart your services.
 
+Update LR_HARD_RESET to true in console
+Wait script to run (follow the logs)
+Update LR_HARD_RESET to false in console
+Restart database service
+Restart liferay service
+
 ## Other Environment Variables
-If you want to save time (or only need) to drop specific things like the Document Library, ES Indices, or Database, instead of using `LIFERAY_HARD_RESET` - you can use the following:
+If you want to save time (or only need) to drop specific things like the Document Library, ES Indices, or Database, instead of using `LR_HARD_RESET` - you can use the following:
 
 ### `DROP_DOCLIB`
 Set this to `true` to drop the Document Library.
