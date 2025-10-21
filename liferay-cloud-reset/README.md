@@ -11,15 +11,15 @@ The following is a way that you can easily refresh your Liferay instance.  The s
 
 3. Run a `chmod +x support-lr-reset.sh` on the script to ensure it is executable!
 
-4. Submit your PR as usual.
+4. Submit your PR and deploy as usual.
 
-5. Once everything has been reset.  Set the environment variable to `false`.  This should restart your services.
+5. Wait for the script to run (follow the logs).
 
-Update LR_HARD_RESET to true in console
-Wait script to run (follow the logs)
-Update LR_HARD_RESET to false in console
-Restart database service
-Restart liferay service
+6. Once everything has been reset.  Set the environment variable to `false` in Cloud Console.
+
+7. Restart the `database` service.
+
+8. Restart the `liferay` service.
 
 ## Other Environment Variables
 If you want to save time (or only need) to drop specific things like the Document Library, ES Indices, or Database, instead of using `LR_HARD_RESET` - you can use the following:
