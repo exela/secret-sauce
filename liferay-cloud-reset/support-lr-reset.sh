@@ -64,7 +64,7 @@ drop_database() {
     if command -v mysql &> /dev/null; then
         echo "ℹ️ MySQL client found. Proceeding with MySQL cleanup."
         
-        db_list=$(mysql -h "$LCP_SECRET_DATABASE_HOST" -u "$LCP_SECRET_DATABASE_USER" -p"$LCP_SECRET_DATABASE_PASSWORD" -sN -e "SELECT schema_name FROM information_schema.schemata WHERE schema_name = 'lportal' OR schema_name LIKE 'lpartition%';")
+        db_list=$(mysql -h "database--route" -u "$LCP_SECRET_DATABASE_USER" -p"$LCP_SECRET_DATABASE_PASSWORD" -sN -e "SELECT schema_name FROM information_schema.schemata WHERE schema_name = 'lportal' OR schema_name LIKE 'lpartition%';")
         if [ $? -ne 0 ]; then
             echo "❌ ERROR: Could not connect to MySQL to list databases." >&2
             return 1
@@ -73,7 +73,7 @@ drop_database() {
         while read -r db_name; do
             if [ -n "$db_name" ]; then
                 echo "Dropping MySQL database: ${db_name}"
-                mysql -f -h "$LCP_SECRET_DATABASE_HOST" -u "$LCP_SECRET_DATABASE_USER" -p"$LCP_SECRET_DATABASE_PASSWORD" -e "DROP DATABASE \`${db_name}\`;"
+                mysql -f -h "database--route" -u "$LCP_SECRET_DATABASE_USER" -p"$LCP_SECRET_DATABASE_PASSWORD" -e "DROP DATABASE \`${db_name}\`;"
                 if [ $? -ne 0 ]; then
                     echo "❌ ERROR: Failed to drop database: ${db_name}" >&2
                 else
@@ -89,7 +89,7 @@ drop_database() {
         # Temporarily export the password for the psql command to use.
         export PGPASSWORD="$LCP_SECRET_DATABASE_PASSWORD"
         
-        db_list=$(psql -h "$LCP_SECRET_DATABASE_HOST" -U "$LCP_SECRET_DATABASE_USER" -t -c "SELECT datname FROM pg_database WHERE datname = 'lportal' OR datname LIKE 'lpartition%';")
+        db_list=$(psql -h "database--route" -U "$LCP_SECRET_DATABASE_USER" -t -c "SELECT datname FROM pg_database WHERE datname = 'lportal' OR datname LIKE 'lpartition%';")
         if [ $? -ne 0 ]; then
             echo "❌ ERROR: Could not connect to PostgreSQL to list databases." >&2
             unset PGPASSWORD # Unset the password variable
@@ -99,7 +99,7 @@ drop_database() {
         while read -r db_name; do
             if [ -n "$db_name" ]; then
                 echo "Dropping PostgreSQL database: ${db_name}"
-                psql -h "$LCP_SECRET_DATABASE_HOST" -U "$LCP_SECRET_DATABASE_USER" -c "DROP DATABASE \"${db_name}\";"
+                psql -h "database--route" -U "$LCP_SECRET_DATABASE_USER" -c "DROP DATABASE \"${db_name}\";"
                 if [ $? -ne 0 ]; then
                     echo "❌ ERROR: Failed to drop database: ${db_name}" >&2
                 else
